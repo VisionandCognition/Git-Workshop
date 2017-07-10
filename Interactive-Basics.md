@@ -17,6 +17,14 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 
 https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
+Install git
+-----------
+
+For Debian/Ubuntu: `sudo apt-get install git`
+
+For Windows, I (Jonathan) personally like TortoiseGit: https://tortoisegit.org/download/
+
+Macs?
 
 Create New Repository
 =====================
