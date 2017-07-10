@@ -64,4 +64,31 @@ Git checkout can also "checkout" different versions or branches of a repository.
 Create Remote Repository
 ------------------------
 
+Create a new repository on Github, without any README file, .gitignore, etc. Name it `git-demo` for this workshop.
+
+Full instructions can be found here:
+https://help.github.com/articles/creating-a-new-repository/
+
+When done, follow the "Quick setup" step, ie. copy the URL for the repository. It should be something like this: "git@github.com:your_username/git-demo.git".
+
+Go back into the console and use that URL to connect your local repository to Github:
+
+    git remote add origin YOUR_URL
+
+Then type `git remote -v` to view the connection and then push your current commit to remote.
+
+    git push origin master
+
+`origin` is where you are pushing. `master` is the branch that you are pushing.
+
+You can refresh your browser (with your github repository) to see the current files.
+
+Do the following using the browser (a **BAD** idea for code in real scenarios):
+
+* Create a README file.
+* Modify the file that you created.
+
+Get changes from made on Github
+-------------------------------
+
 To-do.
