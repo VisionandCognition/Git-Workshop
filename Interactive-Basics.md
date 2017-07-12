@@ -92,3 +92,45 @@ Get changes from made on Github
 -------------------------------
 
 To-do.
+
+Encounter and solve a merge conflict
+====================================
+
+Fork Jonathan's repository to be able to edit it (go to https://github.com/williford/git-demo and click fork). It will automatically switch to your fork. 
+
+Now move to your git bash command line, cd into your favorite location, and type `git clone git@github.com:username/git-demo.git`. 
+
+If you were to open the helloworld.m file in matlab, edit it, commit it, and push it back to your fork, we would not encounter a merge conflict, because the files on the fork haven't changed. However, we are going to simulate a situation in which other people also work on this file. 
+
+Let's go ahead and make the 'other people changes' first. In the browser, look for helloworld.m and click the little pencil to edit the code. 
+
+Add something to the code on line 3. For example, append it with `fprintf('a good day to you my friend');`, or simply change the exclamation point into a question mark. Go ahead and commit this change, and pretend it was someone else who did it :) 
+
+Switch back to editing locally and open helloworld.m in matlab. This should still contain the old line 3: 
+
+`fprintf('Hello world!');` 
+
+because we are pretending that someone else is changing the remote code at the same time as we are changing our local copy. So now change line 3 in your local copy, but change it into something new (if you make the exact change that you made on the server, it will not lead to a merge conflict). 
+
+Next, commit this change as usual, you should not run into trouble. However, if now you try to push, git tells you no because the cannot merge. This is called a merge conflict and it occurs because git doesn't know which of the two changes it should pick. So let's solve it. 
+
+Solving the merge conflict 
+--------------------------
+
+Start by fetching the changes that the 'other' people secretly made while you were gone, `git fetch`. 
+
+After fetching, type `git merge`. This won't work, but it will bring git into a state of conflict. If you use the git bash on windows, the directory indicator will say `(master|MERGING)` at the end of the line, instead of `(master)`.
+
+We will solve this conflict in Matlab. If you refresh the current folder, you will see a little red exclamation point warning next to the helloworld.m file in the Git column to indicate that there is a conflict going on. In the file itself you will see a bunch of weird comments that show both verions of all the conflicting lines (in this case, only line 3). Git uses these comments to tell matlab where the conflict is. 
+
+Right click the file helloworld.m and click 'extract conflict markers to file'. Leave the settings as they are and click 'extract'. This will remove those weird comments and open a window for you to solve the conflict. 
+
+In this window, you will see the remote file that you just fetched on the left, and your own file on the right. Conflicts are marked in red. If you highlight a conflict, the 'merge' button becomes clickable. When you click merge, the remote line is copied over your own line. If you don't click merge, you keep your own line. 
+
+After you're done deciding which lines to merge and which lines not to, just close the window. You have now resolved the conflict by picking which versions of which lines you want to keep. Right click the helloworld.m file again and select 'Mark Conflict Resolved'. Now you can delete the 'helloworld_theirs.m' file that matlab created to aid the resolution. 
+
+You are now ready to commit your work and push it to the server. Your conflict has been solved. 
+
+
+
+
