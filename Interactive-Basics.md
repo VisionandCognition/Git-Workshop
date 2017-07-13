@@ -88,10 +88,30 @@ Do the following using the browser (a **BAD** idea for code in real scenarios):
 * Create a README file.
 * Modify the file that you created.
 
+Move the helloworld file
+------------------------
+
+Make a directory named "code" and move the helloworld.m file to it. There is a simple way and slightly more complicated way to move or rename files that are in Git. The simple way is to use the command `git mv`. The more complicated way is to use `mv` and then add the file in the new location to git (`git add`) and also stage the "delete" of the file in the old location (also `git add`). If you do `git status` it should say that git has detected a renaming of "helloworld.m".
+
 Get changes from made on Github
 -------------------------------
 
-To-do.
+Type:
+
+    git fetch
+    git rebase
+
+it will probably give an error, read it. I would recommend doing the following to fix it:
+
+    git remote -v
+    git branch --set-upstream-to=origin/master master
+
+Checkout the state of the files in your directory. Does helloworld have all the changes?
+
+Additional changes
+------------------
+
+Change the helloworld.m script if there is enough time. Use `git diff` to see unstaged changes.
 
 Encounter and solve a merge conflict
 ====================================
